@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y0M-Ux-tUu" customClass="GTPreviewView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="GNy-KN-aR3"/>
+                                    <outletCollection property="gestureRecognizers" destination="AUW-Sf-had" appends="YES" id="Z5s-aj-g7C"/>
+                                    <outletCollection property="gestureRecognizers" destination="KYu-Gj-bou" appends="YES" id="MVy-hf-ju7"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y0M-Ux-tUu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ap3-8n-qmT"/>
+                            <constraint firstItem="Y0M-Ux-tUu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EXQ-IX-P3Q"/>
+                            <constraint firstAttribute="bottom" secondItem="Y0M-Ux-tUu" secondAttribute="bottom" id="RSG-bN-kCl"/>
+                            <constraint firstAttribute="trailing" secondItem="Y0M-Ux-tUu" secondAttribute="trailing" id="WYJ-8e-cO7"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="_doubleTapGestureRecognizer" destination="KYu-Gj-bou" id="O3E-tL-9lC"/>
+                        <outlet property="_previewView" destination="Y0M-Ux-tUu" id="qZR-25-xYW"/>
+                        <outlet property="_tapGestureRecognizer" destination="AUW-Sf-had" id="4vg-rY-oVp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="AUW-Sf-had">
+                    <connections>
+                        <action selector="tap:" destination="BYZ-38-t0r" id="geb-yg-AYl"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="KYu-Gj-bou" userLabel="Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="doubleTap:" destination="BYZ-38-t0r" id="pKw-eQ-I4d"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="129" y="334"/>
+        </scene>
+    </scenes>
+</document>

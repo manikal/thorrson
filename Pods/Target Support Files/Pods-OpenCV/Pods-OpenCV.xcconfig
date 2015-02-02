@@ -1,0 +1,2 @@
+PODS_OPENCV_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/OpenCV"
+PODS_OPENCV_OTHER_LDFLAGS = -l"stdc++" -framework "AVFoundation" -framework "Accelerate" -framework "AssetsLibrary" -framework "CoreGraphics" -framework "CoreImage" -framework "CoreMedia" -framework "CoreVideo" -framework "Foundation" -framework "QuartzCore" -framework "UIKit" -framework "opencv2"
