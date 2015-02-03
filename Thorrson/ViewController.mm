@@ -14,14 +14,13 @@
 
 const int MAX_POINTS_COUNT = 10;
 const int32_t MAX_FPS = 30;
-
-#define kFrameWidthInPortrait 720
+const CGSize resolutionSize = CGSizeMake(1280, 720);
 
 @interface ViewController () <AVCaptureVideoDataOutputSampleBufferDelegate,GTPreviewViewDelegate>
 {
-    AVCaptureSession        *_session;
-    AVCaptureDevice         *_device;
-    IBOutlet UIImageView    *_previewView;
+    AVCaptureSession                *_session;
+    AVCaptureDevice                 *_device;
+    IBOutlet GTPreviewView          *_previewView;
     IBOutlet UITapGestureRecognizer *_tapGestureRecognizer;
     IBOutlet UITapGestureRecognizer *_doubleTapGestureRecognizer;
 
@@ -247,8 +246,17 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 {
     CGPoint locationInView = [sender locationInView:_previewView];
 
-    // We're always in portrait and using the same resolution
-    CGFloat scale = kFrameWidthInPortrait / _previewView.bounds.size.width;
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+
+    CGFloat scale = 0;
+
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        scale = resolutionSize.width / _previewView.bounds.size.width;
+    }
+    else
+    {
+        scale = resolutionSize.height / _previewView.bounds.size.width;
+    }
 
     _touchPoint = cv::Point2f(locationInView.x * scale,locationInView.y * scale);
     _addRemovePt = true;
